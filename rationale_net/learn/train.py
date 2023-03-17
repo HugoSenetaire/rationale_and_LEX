@@ -176,7 +176,7 @@ def run_epoch(data_loader, train_model, model, gen, optimizer, step, args):
         num_batches_per_epoch = min(len(data_iter), 10000)
 
     for _ in tqdm.tqdm(range(num_batches_per_epoch)):
-        batch = data_iter.next()
+        batch = next(data_iter)
         if train_model:
             step += 1
             if  step % 100 == 0 or args.debug_mode:

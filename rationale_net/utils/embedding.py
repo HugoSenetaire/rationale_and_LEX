@@ -54,7 +54,7 @@ def getBeerEmbedding(args):
 
 @RegisterEmbedding('glove')
 def getGloveEmbedding(args):
-    embedding_path='data/embeddings/glove.6B/glove.6B.300d.txt'
+    embedding_path="/Users/hhjs/Downloads/glove.6B/glove.6B.300d.txt"
     lines = []
     with open(embedding_path) as file:
         lines = file.readlines()

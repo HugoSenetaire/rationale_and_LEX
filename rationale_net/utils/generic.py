@@ -3,7 +3,7 @@ import pdb
 import argparse
 
 def tensor_to_numpy(tensor):
-    return tensor.data[0]
+    return tensor.data.item()
 
 class Namespace:
     def __init__(self, **kwargs):
@@ -42,6 +42,8 @@ def parse_args():
     parser.add_argument('--weight_decay', type=float, default=1e-3, help='L2 norm penalty [default: 1e-3]')
     parser.add_argument('--filter_num', type=int, default=100, help='number of each kind of kernel')
     parser.add_argument('--filters', type=str, default='3,4,5', help='comma-separated kernel size to use for convolution')
+    # parser.add_argument('--imputer', type=str, default=None, choices=['markov_chain', 'marginal'])
+    parser.add_argument('--imputer', type=str, default='markov_chain', choices=['markov_chain', 'marginal'])
     # data
     parser.add_argument('--dataset', default='news_group', help='choose which dataset to run on. [default: news_group]')
     parser.add_argument('--embedding', default='glove', help='choose what embeddings to use. To use them, please download them to "embeddings/glove.6B.300d.txt and set this argument to "glove" [default: random] ')
